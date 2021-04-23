@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="4or5C1OliLdgapyjDCoO" name="ページ1">
-        <mxGraphModel dx="1360" dy="1121" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1587" dy="1308" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -37,7 +37,7 @@
                 <mxCell id="18" value="buyテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=18;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=left;" vertex="1" parent="1">
                     <mxGeometry x="260" y="290" width="230" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value=" post_code (string/null:false)&#10; prefecture (integer/null:false)&#10; city  (string/null:false)&#10; house/number  (string/null:false)&#10; phone_number (string/null:false)&#10; building_name (string/null:false)&#10; user (references)&#10; item (references)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=15;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="18">
+                <mxCell id="19" value=" post_code (string/null:false)&#10; prefecture (integer/null:false)&#10; city  (string/null:false)&#10; house_number  (string/null:false)&#10; phone_number (string/null:false)&#10; building_name (string/null:false)&#10; user (references)&#10; item (references)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=15;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="18">
                     <mxGeometry y="30" width="230" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="postage_typesテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=0;fontSize=18;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=left;" vertex="1" parent="1">
