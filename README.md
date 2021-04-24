@@ -30,25 +30,28 @@
 | category_id        | integer    | null: false       |
 | item_condition_id  | integer    | null: false       |
 | postage_type_id    | integer    | null: false       |
-| ship_from_id       | integer    | null: false       |
+| prefecture_id      | integer    | null: false       |
 | preparation_day_id | integer    | null: false       |
 
 ### Association
 
 - belongs_to :user
+- has_one :purchase_history
+
+### Active hash
+
 - belongs_to :category
 - belongs_to :item_condition
 - belongs_to :postage_type
-- belongs_to :ship_from
+- belongs_to :prefecture_id
 - belongs_to :preparation_day
-- has_one :purchase_history
 
-## addressテーブル
+## addressesテーブル
 
 | Column          | Type       | Options           |
 | ----------      | ------     | ---------------   |
 | post_code       | string     | null: false       |
-| prefecture      | integer    | null: false       |
+| prefecture_id   | integer    | null: false       |
 | city            | string     | null: false       |
 | house_number    | string     | null: false       |
 | phone_number    | string     | null: false       |
@@ -57,19 +60,22 @@
 
 ### Association
 
-- has_one :purchase_history
+- belongs_to :purchase_history
 
-## purchase_historyテーブル
+### Active hash
+
+- belongs_to :prefecture_id
+
+## purchase_historiesテーブル
 
 | Column         | Type       | Options           |
 | ----------     | ------     | ----------------- |
 | user           | references | foreign_key: true |
 | item           | references | foreign_key: true |
-| address        | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
