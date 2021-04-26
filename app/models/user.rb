@@ -14,7 +14,6 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: VALID_NAME_KANA}
     validates :birthday
   end
-  has_many :items
-  has_many :purchase_histories
+  # has_many :items
+  # has_many :purchase_histories
 end
-
