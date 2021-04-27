@@ -20,6 +20,6 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :item_condition
   belongs_to :postage_type
-  belongs_to :prefecture_id
+  belongs_to :prefecture
   belongs_to :preparation_day
 end
