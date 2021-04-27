@@ -8,10 +8,9 @@ class Item < ApplicationRecord
     validates :category_id
     validates :item_condition_id
     validates :postage_type_id
+    validates :prefecture_id
     validates :preparation_day_id
   end
-
-  validates :prefecture_id, numericality: true
 
   belongs_to :user
   has_one :purchase_history
