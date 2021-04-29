@@ -52,6 +52,31 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Preparation day is not a number"
       end
+      it 'カテゴリーの情報が1では登録できないこと' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Category must be other than 1"
+      end
+      it '商品状態の情報が1では登録できないこと' do
+        @item.item_condition_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Item condition must be other than 1"
+      end
+      it '配送料の負担についての情報が1では登録できないこと' do
+        @item.postage_type_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Postage type must be other than 1"
+      end
+      it '発送元の地域についての情報が1では登録できないこと' do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
+      end
+      it '発送までの日数についての情報が1では登録できないこと' do
+        @item.preparation_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Preparation day must be other than 1"
+      end
       it '販売価格は、¥299では保存できない' do
         @item.price = 299
         @item.valid?
@@ -62,8 +87,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Price must be less than or equal to 9999999"
       end
-      it '販売価格は半角数字のみ保存可能' do
-        @item.price = "１０００"
+      it '販売価格は全角文字では登録できない' do
+        @item.price = "１１ああ"
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not a number"
+      end
+      it '販売価格は半角英数字混合では登録できない' do
+        @item.price = "11aa"
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Price is not a number"
+      end
+      it '販売価格は半角英語だけでは登録できない' do
+        @item.price = "aaaa"
         @item.valid?
         expect(@item.errors.full_messages).to include "Price is not a number"
       end
