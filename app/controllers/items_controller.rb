@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :item_find, only: [:show, :edit, :update]
+  before_action :item_find, only: [:show, :edit, :update,]#:destroyを追加する
   before_action :not_update, only: [:edit, :update]
 
   def index
@@ -27,13 +27,16 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
-    if @item.save
+    if @item.update(item_params)
       redirect_to root_path
     else
       render :edit
     end
   end
+
+  # def destroy
+  #   @item.destroy
+  # end
 
   private
   def item_params
