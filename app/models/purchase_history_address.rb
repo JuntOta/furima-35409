@@ -1,7 +1,7 @@
 class PurchaseHistoryAddress
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :post_code, :city, :house_number, :phone_number, :building_name,
-  :prefecture_id, :purchase_history_id
+  :prefecture_id, :purchase_history_id, :token
 
   with_options presence: true do
     validates :post_code
@@ -10,6 +10,7 @@ class PurchaseHistoryAddress
     validates :phone_number
     validates :user_id
     validates :item_id
+    validates :token
   end
   
   validate :building_name
