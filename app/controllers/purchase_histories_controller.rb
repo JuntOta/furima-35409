@@ -8,12 +8,13 @@ class PurchaseHistoriesController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @purchase_history_address = PurchaseHistoryAddress.new(purchase_history_address_params)
-    if @purchase_history_address.valid?
-       @purchase_history_address.save
-      redirect_to root_path
-    else
-      render :index
-    end
+    @purchase_history_address.save #カード機能実装後に削除
+    # if @purchase_history_address.valid? #カード機能実装後にコメントアウトを外す
+    #    @purchase_history_address.save
+    #   redirect_to root_path
+    # else
+    #   render :index
+    # end
   end
 
   private
