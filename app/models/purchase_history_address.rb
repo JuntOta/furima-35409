@@ -8,7 +8,6 @@ class PurchaseHistoryAddress
     validates :city
     validates :house_number
     validates :phone_number
-    validates :purchase_history_id
     validates :user_id
     validates :item_id
   end

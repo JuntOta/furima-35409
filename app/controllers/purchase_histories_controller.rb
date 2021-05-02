@@ -6,13 +6,14 @@ class PurchaseHistoriesController < ApplicationController
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @purchase_history_address = PurchaseHistoryAddress.new(purchase_history_address_params)
-    if @purchase_history_address.save
+    if @purchase_history_address.valid?
+       @purchase_history_address.save
       redirect_to root_path
     else
       render :index
     end
-    # if @purchase_history_address.valid?
   end
 
   private
