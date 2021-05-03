@@ -13,7 +13,6 @@ class PurchaseHistoryAddress
     validates :token
   end
   
-  validate :building_name
   validates :prefecture_id, numericality: { other_than: 1 }
 
   def save

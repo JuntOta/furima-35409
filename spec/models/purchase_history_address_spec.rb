@@ -13,6 +13,10 @@ RSpec.describe PurchaseHistoryAddress, type: :model do
       it '必須情報があれば購入できる' do
         expect(@purchase_history_address).to be_valid
       end
+      it '建物名が空でも購入できる' do
+        @purchase_history_address.building_name = ""
+        expect(@purchase_history_address).to be_valid
+      end
     end
 
     context '商品が購入できないとき' do
@@ -50,6 +54,26 @@ RSpec.describe PurchaseHistoryAddress, type: :model do
         @purchase_history_address.post_code = "1234567"
         @purchase_history_address.valid?
         expect(@purchase_history_address.errors.full_messages).to include "Post code is invalid"
+      end
+      it 'user_idは空では登録できない' do
+        @purchase_history_address.user_id = nil
+        @purchase_history_address.valid?
+        expect(@purchase_history_address.errors.full_messages).to include "User can't be blank"
+      end
+      it 'item_idは空では登録できない' do
+        @purchase_history_address.item_id = nil
+        @purchase_history_address.valid?
+        expect(@purchase_history_address.errors.full_messages).to include "Item can't be blank"
+      end
+      it '電話番号が12桁以上では登録できない' do
+        @purchase_history_address.phone_number = "123456789123"
+        @purchase_history_address.valid?
+        expect(@purchase_history_address.errors.full_messages).to include "Phone number is too long (maximum is 11 characters)"
+      end
+      it '電話番号英数混合では登録できない' do
+        @purchase_history_address.phone_number = "0801234567a"
+        @purchase_history_address.valid?
+        expect(@purchase_history_address.errors.full_messages).to include "Phone number is not a number"
       end
     end
   end
