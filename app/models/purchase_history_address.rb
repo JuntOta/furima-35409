@@ -4,10 +4,10 @@ class PurchaseHistoryAddress
   :prefecture_id, :purchase_history_id, :token
 
   with_options presence: true do
-    validates :post_code
+    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
     validates :city
     validates :house_number
-    validates :phone_number
+    validates :phone_number, numericality: {only_integer: true}, length: { maximum: 11 }
     validates :user_id
     validates :item_id
     validates :token
